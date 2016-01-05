@@ -66,6 +66,17 @@ if ( WIN32 )
 endif ( )
 file ( WRITE "${PROJECT_BINARY_DIR}/include/freetype/config/ftoption.h" "${FTOPTION_H}" )
 
+# check deplibs cache
+if ( STATICLIB_USE_DEPLIBS_CACHE )
+    set ( ${PROJECT_NAME}_CACHED_LIB_PATH ${STATICLIB_DEPLIBS_CACHE_DIR}/${CMAKE_STATIC_LIBRARY_PREFIX}${PROJECT_NAME}${CMAKE_STATIC_LIBRARY_SUFFIX} )
+    if ( EXISTS ${${PROJECT_NAME}_CACHED_LIB_PATH} )
+        add_library( ${PROJECT_NAME} STATIC IMPORTED GLOBAL )
+        set_target_properties( ${PROJECT_NAME} PROPERTIES IMPORTED_LOCATION ${${PROJECT_NAME}_CACHED_LIB_PATH} )
+        message ( STATUS "Using cached library: [${${PROJECT_NAME}_CACHED_LIB_PATH}]" )
+        return ( )
+    endif ( )
+endif ( )
+
 # libraries
 file ( GLOB PUBLIC_HEADERS "${${PROJECT_NAME}_SOURCE_DIR}/include/ft2build.h" "${${PROJECT_NAME}_SOURCE_DIR}/include/freetype/*.h")
 file ( GLOB PUBLIC_CONFIG_HEADERS "${${PROJECT_NAME}_SOURCE_DIR}/include/freetype/config/*.h")

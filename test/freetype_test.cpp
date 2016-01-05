@@ -31,10 +31,10 @@
 int main() {
     FT_Library library;
     auto err_init = FT_Init_FreeType(std::addressof(library));
-    assert(!err_init);
+    (void) err_init; assert(!err_init);
     FT_Face face;
     auto err_load = FT_New_Face(library, "../test/font/DejaVuSans.ttf", 0, &face);
-    assert(!err_load);
+    (void) err_load; assert(!err_load);
     
     FT_Done_FreeType(library);
     
