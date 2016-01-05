@@ -71,74 +71,64 @@ file ( GLOB PUBLIC_HEADERS "${${PROJECT_NAME}_SOURCE_DIR}/include/ft2build.h" "$
 file ( GLOB PUBLIC_CONFIG_HEADERS "${${PROJECT_NAME}_SOURCE_DIR}/include/freetype/config/*.h")
 file ( GLOB PRIVATE_HEADERS "${${PROJECT_NAME}_SOURCE_DIR}/include/freetype/internal/*.h")
 
-
 set ( BASE_SRCS
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/autofit/autofit.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftbase.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftbbox.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftbdf.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftbitmap.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftcid.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftfntfmt.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftfstype.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftgasp.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftglyph.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftgxval.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftinit.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftlcdfil.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftmm.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftotval.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftpatent.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftpfr.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftstroke.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftsynth.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftsystem.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/base/fttype1.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftwinfnt.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/bdf/bdf.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/bzip2/ftbzip2.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/cache/ftcache.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/cff/cff.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/cid/type1cid.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/gzip/ftgzip.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/lzw/ftlzw.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/pcf/pcf.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/pfr/pfr.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/psaux/psaux.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/pshinter/pshinter.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/psnames/psnames.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/raster/raster.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/sfnt/sfnt.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/smooth/smooth.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/truetype/truetype.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/type1/type1.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/type42/type42.c
-    ${${PROJECT_NAME}_SOURCE_DIR}/src/winfonts/winfnt.c )
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/autofit/autofit.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftbase.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftbbox.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftbdf.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftbitmap.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftcid.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftfntfmt.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftfstype.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftgasp.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftglyph.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftgxval.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftinit.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftlcdfil.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftmm.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftotval.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftpatent.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftpfr.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftstroke.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftsynth.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftsystem.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/base/fttype1.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftwinfnt.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/bdf/bdf.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/bzip2/ftbzip2.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/cache/ftcache.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/cff/cff.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/cid/type1cid.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/gzip/ftgzip.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/lzw/ftlzw.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/pcf/pcf.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/pfr/pfr.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/psaux/psaux.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/pshinter/pshinter.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/psnames/psnames.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/raster/raster.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/sfnt/sfnt.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/smooth/smooth.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/truetype/truetype.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/type1/type1.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/type42/type42.c
+        ${${PROJECT_NAME}_SOURCE_DIR}/src/winfonts/winfnt.c )
 
 if ( WIN32 )
-  set ( BASE_SRCS ${BASE_SRCS} ${${PROJECT_NAME}_SOURCE_DIR}/builds/windows/ftdebug.c )
+    set ( BASE_SRCS ${BASE_SRCS} ${${PROJECT_NAME}_SOURCE_DIR}/builds/windows/ftdebug.c )
 else ( )
-  set ( BASE_SRCS ${BASE_SRCS} ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftdebug.c )
+    set ( BASE_SRCS ${BASE_SRCS} ${${PROJECT_NAME}_SOURCE_DIR}/src/base/ftdebug.c )
 endif ( )
 
-add_library( freetype_shared SHARED
-    ${BASE_SRCS}
-    ${PUBLIC_HEADERS}
-    ${PUBLIC_CONFIG_HEADERS}
-    ${PRIVATE_HEADERS} )
-add_library( freetype_static STATIC
+add_library( ${PROJECT_NAME} STATIC
     ${BASE_SRCS}
     ${PUBLIC_HEADERS}
     ${PUBLIC_CONFIG_HEADERS}
     ${PRIVATE_HEADERS} )
 
-target_include_directories ( freetype_shared BEFORE PRIVATE "${${PROJECT_NAME}_SOURCE_DIR}/include" )
-target_include_directories ( freetype_static BEFORE PRIVATE "${${PROJECT_NAME}_SOURCE_DIR}/include" )
-target_include_directories ( freetype_shared BEFORE PRIVATE "${PROJECT_BINARY_DIR}/include" )
-target_include_directories ( freetype_static BEFORE PRIVATE "${PROJECT_BINARY_DIR}/include" )
-target_compile_definitions ( freetype_shared PRIVATE -DFT2_BUILD_LIBRARY )
-target_compile_definitions ( freetype_static PRIVATE -DFT2_BUILD_LIBRARY )
+target_include_directories ( ${PROJECT_NAME} BEFORE PRIVATE "${${PROJECT_NAME}_SOURCE_DIR}/include" )
+target_include_directories ( ${PROJECT_NAME} BEFORE PRIVATE "${PROJECT_BINARY_DIR}/include" )
+target_compile_definitions ( ${PROJECT_NAME} PRIVATE -DFT2_BUILD_LIBRARY )
 if ( ${CMAKE_CXX_COMPILER_ID}x MATCHES "MSVCx" )
-    target_compile_definitions ( freetype_shared PRIVATE -D_CRT_SECURE_NO_WARNINGS )
-    target_compile_definitions ( freetype_static PRIVATE -D_CRT_SECURE_NO_WARNINGS )
+    target_compile_definitions ( ${PROJECT_NAME} PRIVATE -D_CRT_SECURE_NO_WARNINGS )
 endif ( )

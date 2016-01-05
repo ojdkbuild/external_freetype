@@ -22,7 +22,7 @@ set ( ${PROJECT_NAME}_URL https://github.com/staticlibs/external_freetype )
 
 # freetype library
 add_subdirectory ( ${CMAKE_CURRENT_LIST_DIR}/resources/freetype_262_cmake ${CMAKE_CURRENT_BINARY_DIR}/freetype )
-add_custom_target ( ${PROJECT_NAME} DEPENDS freetype_shared freetype_static )
+add_custom_target ( ${PROJECT_NAME} DEPENDS freetype )
 
 # pkg-config
 if ( NOT DEFINED CMAKE_LIBRARY_OUTPUT_DIRECTORY )
@@ -30,6 +30,6 @@ if ( NOT DEFINED CMAKE_LIBRARY_OUTPUT_DIRECTORY )
 endif ( )
 set ( ${PROJECT_NAME}_MODULE freetype )
 set ( ${PROJECT_NAME}_PC_CFLAGS "-I${CMAKE_CURRENT_BINARY_DIR}/freetype/include -I${CMAKE_CURRENT_SOURCE_DIR}/freetype/include" )
-set ( ${PROJECT_NAME}_PC_LIBS "-L${CMAKE_LIBRARY_OUTPUT_DIRECTORY} -lfreetype_static" )
+set ( ${PROJECT_NAME}_PC_LIBS "-L${CMAKE_LIBRARY_OUTPUT_DIRECTORY} -lfreetype" )
 configure_file ( ${CMAKE_CURRENT_LIST_DIR}/resources/pkg-config.in 
         ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/pkgconfig/freetype.pc )
