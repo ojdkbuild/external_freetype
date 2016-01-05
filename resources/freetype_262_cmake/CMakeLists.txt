@@ -49,26 +49,21 @@ endif ( )
 message ( STATUS "Creating file ${PROJECT_BINARY_DIR}/include/freetype/config/ftoption.h" )
 
 file ( READ "${${PROJECT_NAME}_SOURCE_DIR}/include/freetype/config/ftoption.h" FTOPTION_H )
-#if (ZLIB_FOUND)
-#  string(REGEX REPLACE
-#    "/\\* +(#define +FT_CONFIG_OPTION_SYSTEM_ZLIB) +\\*/" "\\1"
-#    FTOPTION_H "${FTOPTION_H}")
-#endif ()
-#if (BZIP2_FOUND)
-#  string(REGEX REPLACE
-#    "/\\* +(#define +FT_CONFIG_OPTION_USE_BZIP2) +\\*/" "\\1"
-#    FTOPTION_H "${FTOPTION_H}")
-#endif ()
-#if (PNG_FOUND)
-#  string(REGEX REPLACE
-#    "/\\* +(#define +FT_CONFIG_OPTION_USE_PNG) +\\*/" "\\1"
-#    FTOPTION_H "${FTOPTION_H}")
-#endif ()
-#if (HARFBUZZ_FOUND)
-#  string(REGEX REPLACE
-#    "/\\* +(#define +FT_CONFIG_OPTION_USE_HARFBUZZ) +\\*/" "\\1"
-#    FTOPTION_H "${FTOPTION_H}")
-#endif ()
+if ( WIN32 )
+    # escape seqs won't work
+    string ( REGEX REPLACE 
+            "/\\*[ \t]+#define[ \t]+FT_CONFIG_OPTION_SUBPIXEL_RENDERING[ \t]+\\*/" 
+            "#define FT_CONFIG_OPTION_SUBPIXEL_RENDERING" 
+            FTOPTION_H "${FTOPTION_H}" )
+    string ( REGEX REPLACE 
+            "/\\*[ \t]+#define[ \t]+FT_EXPORT\\(x\\)[ \t]+extern[ \t]+x[ \t]+\\*/" 
+            "#define FT_EXPORT(x) __declspec(dllexport) x" 
+            FTOPTION_H "${FTOPTION_H}" )
+    string ( REGEX REPLACE 
+            "/\\*[ \t]+#define[ \t]+FT_EXPORT_DEF\\(x\\)[ \t]+x[ \t]+\\*/" 
+            "#define FT_EXPORT_DEF(x) __declspec(dllexport) x" 
+            FTOPTION_H "${FTOPTION_H}" )            
+endif ( )
 file ( WRITE "${PROJECT_BINARY_DIR}/include/freetype/config/ftoption.h" "${FTOPTION_H}" )
 
 # libraries
@@ -143,3 +138,7 @@ target_include_directories ( freetype_shared BEFORE PRIVATE "${PROJECT_BINARY_DI
 target_include_directories ( freetype_static BEFORE PRIVATE "${PROJECT_BINARY_DIR}/include" )
 target_compile_definitions ( freetype_shared PRIVATE -DFT2_BUILD_LIBRARY )
 target_compile_definitions ( freetype_static PRIVATE -DFT2_BUILD_LIBRARY )
+if ( ${CMAKE_CXX_COMPILER_ID}x MATCHES "MSVCx" )
+    target_compile_definitions ( freetype_shared PRIVATE -D_CRT_SECURE_NO_WARNINGS )
+    target_compile_definitions ( freetype_static PRIVATE -D_CRT_SECURE_NO_WARNINGS )
+endif ( )
