@@ -25,8 +25,8 @@ Visual Studio development command prompt
     cmake ..
     msbuild external_freetype.sln
 
-See [StaticlibsBuilds](https://github.com/staticlibs/wiki/wiki/StaticlibsBuilds) for 
-more information about the Staticlibs toolchain setup, dependencies handling and cross-compilation.
+See [StaticlibsToolchains](https://github.com/staticlibs/wiki/wiki/StaticlibsToolchains) for 
+more information about the CMake toolchains setup and cross-compilation.
 
 License information
 -------------------
@@ -35,6 +35,11 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 
 Changelog
 ---------
+
+**2016-01-17**
+
+ * version 2.6.2.1
+ * minor CMake changes
 
 **2016-01-05**
 
