@@ -7,7 +7,7 @@ This project contains a CMake wrapper for the [Freetype library](http://freetype
 
 FreeType unofficial GitHub mirror is used as a git submodule of this project. FreeType is pinned to version 2.6.2.
 
-Link to [API documentation](http://freetype.org/freetype2/docs/reference/ft2-index.html).
+Link to the [API documentation](http://freetype.org/freetype2/docs/reference/ft2-index.html).
 
 How to build
 ------------
