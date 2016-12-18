@@ -5,7 +5,8 @@ This project is a part of [Staticlibs](http://staticlibs.net/).
 
 This project contains a CMake wrapper for the [Freetype library](http://freetype.org/). 
 
-FreeType unofficial GitHub mirror is used as a git submodule of this project. FreeType is pinned to version 2.6.2.
+[FreeType sources imported from CentOS lookaside](https://github.com/ojdkbuild/lookaside_freetype.git)
+are used as a submodule of this project.
 
 Link to the [API documentation](http://freetype.org/freetype2/docs/reference/ft2-index.html).
 
@@ -35,6 +36,11 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 
 Changelog
 ---------
+
+**2016-12-18**
+
+ * version 2.4.11-1
+ * lookaside build
 
 **2016-01-17**
 
