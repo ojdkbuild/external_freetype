@@ -16,7 +16,7 @@ cmake_minimum_required ( VERSION 2.8.12 )
 
 # project
 project ( external_freetype CXX C )
-set ( ${PROJECT_NAME}_STATICLIB_VERSION 2.4.11-1 )
+set ( ${PROJECT_NAME}_STATICLIB_VERSION 2.4.11-2 )
 set ( ${PROJECT_NAME}_DESCRIPTION "FreeType2 library build for Staticlibs" )
 set ( ${PROJECT_NAME}_URL https://github.com/staticlibs/external_freetype )
 
@@ -26,12 +26,12 @@ if ( NOT DEFINED CMAKE_LIBRARY_OUTPUT_DIRECTORY )
 endif ( )
 
 # freetype library
-add_subdirectory ( ${CMAKE_CURRENT_LIST_DIR}/resources/freetype_2411_cmake ${CMAKE_CURRENT_BINARY_DIR}/freetype )
+add_subdirectory ( ${CMAKE_CURRENT_LIST_DIR}/resources/freetype_cmake ${CMAKE_CURRENT_BINARY_DIR}/freetype )
 add_custom_target ( ${PROJECT_NAME} DEPENDS freetype )
 
 # pkg-config
 set ( ${PROJECT_NAME}_MODULE freetype )
-set ( ${PROJECT_NAME}_PC_CFLAGS "-I${CMAKE_CURRENT_BINARY_DIR}/freetype/include -I${CMAKE_CURRENT_SOURCE_DIR}/freetype/include" )
+set ( ${PROJECT_NAME}_PC_CFLAGS "-I${CMAKE_CURRENT_BINARY_DIR}/freetype/include -I${freetype_LOOKASIDE_DIR}/include" )
 set ( ${PROJECT_NAME}_PC_LIBS "-L${CMAKE_LIBRARY_OUTPUT_DIRECTORY} -lfreetype" )
 configure_file ( ${CMAKE_CURRENT_LIST_DIR}/resources/pkg-config.in 
         ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/pkgconfig/freetype.pc )
