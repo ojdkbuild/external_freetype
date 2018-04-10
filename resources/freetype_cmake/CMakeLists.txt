@@ -103,18 +103,19 @@ set ( ${PROJECT_NAME}_BASE_SRCS
         ${${PROJECT_NAME}_LOOKASIDE_DIR}/src/winfonts/winfnt.c )
 source_group ( "src" FILES ${${PROJECT_NAME}_BASE_SRCS} )        
 
+# todo: fixme
 if ( WIN32 )
     set ( BASE_SRCS ${BASE_SRCS} ${${PROJECT_NAME}_LOOKASIDE_DIR}/builds/windows/ftdebug.c )
 else ( )
     set ( BASE_SRCS ${BASE_SRCS} ${${PROJECT_NAME}_LOOKASIDE_DIR}/src/base/ftdebug.c )
 endif ( )
 
-add_library( ${PROJECT_NAME} STATIC
+add_library( ${PROJECT_NAME}${${PROJECT_NAME}_LIBNAME_POSTFIX} STATIC
     ${${PROJECT_NAME}_BASE_SRCS}
     ${${PROJECT_NAME}_PUBLIC_HEADERS}
     ${${PROJECT_NAME}_PUBLIC_CONFIG_HEADERS}
     ${${PROJECT_NAME}_PRIVATE_HEADERS} )
 
-target_include_directories ( ${PROJECT_NAME} BEFORE PRIVATE "${${PROJECT_NAME}_LOOKASIDE_DIR}/include" )
-target_include_directories ( ${PROJECT_NAME} BEFORE PRIVATE "${PROJECT_BINARY_DIR}/include" )
-target_compile_definitions ( ${PROJECT_NAME} PRIVATE -DFT2_BUILD_LIBRARY )
+target_include_directories ( ${PROJECT_NAME}${${PROJECT_NAME}_LIBNAME_POSTFIX} BEFORE PRIVATE "${${PROJECT_NAME}_LOOKASIDE_DIR}/include" )
+target_include_directories ( ${PROJECT_NAME}${${PROJECT_NAME}_LIBNAME_POSTFIX} BEFORE PRIVATE "${PROJECT_BINARY_DIR}/include" )
+target_compile_definitions ( ${PROJECT_NAME}${${PROJECT_NAME}_LIBNAME_POSTFIX} PRIVATE -DFT2_BUILD_LIBRARY )

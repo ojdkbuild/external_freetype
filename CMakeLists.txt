@@ -27,11 +27,11 @@ endif ( )
 
 # freetype library
 add_subdirectory ( ${CMAKE_CURRENT_LIST_DIR}/resources/freetype_cmake ${CMAKE_CURRENT_BINARY_DIR}/freetype )
-add_custom_target ( ${PROJECT_NAME} DEPENDS freetype )
+add_custom_target ( ${PROJECT_NAME} DEPENDS freetype${freetype_LIBNAME_POSTFIX} )
 
 # pkg-config
-set ( ${PROJECT_NAME}_MODULE freetype )
-set ( ${PROJECT_NAME}_PC_CFLAGS "-I${CMAKE_CURRENT_BINARY_DIR}/freetype/include -I${freetype_LOOKASIDE_DIR}/include" )
-set ( ${PROJECT_NAME}_PC_LIBS "-L${CMAKE_LIBRARY_OUTPUT_DIRECTORY} -lfreetype" )
+set ( ${PROJECT_NAME}_MODULE freetype${freetype_LIBNAME_POSTFIX} )
+set ( ${PROJECT_NAME}_PC_CFLAGS "-I${CMAKE_CURRENT_BINARY_DIR}/freetype${freetype_LIBNAME_POSTFIX}/include -I${freetype_LOOKASIDE_DIR}/include" )
+set ( ${PROJECT_NAME}_PC_LIBS "-L${CMAKE_LIBRARY_OUTPUT_DIRECTORY} -lfreetype${freetype_LIBNAME_POSTFIX}" )
 configure_file ( ${CMAKE_CURRENT_LIST_DIR}/resources/pkg-config.in 
-        ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/pkgconfig/freetype.pc )
+        ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/pkgconfig/freetype${freetype_LIBNAME_POSTFIX}.pc )
