@@ -39,7 +39,7 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 Changelog
 ---------
 
-**2018-01-07**
+**2019-01-07**
 
  * version 2.8-1
  * update to freetype-2.8
