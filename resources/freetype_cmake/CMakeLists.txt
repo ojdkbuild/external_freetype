@@ -66,7 +66,7 @@ set ( ${PROJECT_NAME}_BASE_SRCS
         ${${PROJECT_NAME}_LOOKASIDE_DIR}/src/base/ftbdf.c
         ${${PROJECT_NAME}_LOOKASIDE_DIR}/src/base/ftbitmap.c
         ${${PROJECT_NAME}_LOOKASIDE_DIR}/src/base/ftcid.c
-#        ${${PROJECT_NAME}_LOOKASIDE_DIR}/src/base/ftfntfmt.c
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/src/base/ftfntfmt.c
         ${${PROJECT_NAME}_LOOKASIDE_DIR}/src/base/ftfstype.c
         ${${PROJECT_NAME}_LOOKASIDE_DIR}/src/base/ftgasp.c
         ${${PROJECT_NAME}_LOOKASIDE_DIR}/src/base/ftglyph.c
@@ -103,7 +103,6 @@ set ( ${PROJECT_NAME}_BASE_SRCS
         ${${PROJECT_NAME}_LOOKASIDE_DIR}/src/winfonts/winfnt.c )
 source_group ( "src" FILES ${${PROJECT_NAME}_BASE_SRCS} )        
 
-# todo: fixme
 if ( WIN32 )
     set ( BASE_SRCS ${BASE_SRCS} ${${PROJECT_NAME}_LOOKASIDE_DIR}/builds/windows/ftdebug.c )
 else ( )
