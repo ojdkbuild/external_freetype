@@ -39,6 +39,11 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 Changelog
 ---------
 
+**2019-04-10**
+
+ * version 2.8-2
+ * fix `gb2312` encoding name
+
 **2019-01-07**
 
  * version 2.8-1
