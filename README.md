@@ -39,6 +39,11 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 Changelog
 ---------
 
+**2021-04-14**
+
+ * version 2.8-5
+ * two patches for PNG support
+
 **2019-12-02**
 
  * version 2.8-4
